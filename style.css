@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+header {
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+}
+
+h1 {
+    background-color: rgb(12, 12, 12);
+    color: white;
+    padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+.tareas {
+    background-color: rgb(220, 248, 239);
+    padding: 20px;
+}
+
+article h2 {
+    background-color: rgb(96, 163, 163);
+    padding: 10px;
+    color: rgb(1, 41, 41);
+    text-align: center;
+
+}
+
+.infovalue {
+    background-color: rgb(21, 70, 70);
+    padding: 20px;
+
+    & input {
+        padding: 5px;
+        margin-left: 20px;
+    }
+}
+
+.urgente {
+    background-color: brown;
+    padding: 20px;
+}
+
+#selectTarea {
+    background-color: aquamarine;
+    color: rgb(21, 70, 70);
+    padding: 5px;
+}
+
+#tipoTarea {
+    background-color: aquamarine;
+    color: rgb(21, 70, 70);
+    padding: 10px;
+    margin: 0 10px 0 10px;
+}
