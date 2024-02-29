@@ -12,60 +12,64 @@
 <body>
 
 
-    <header>
+    <div id="header">
 
         <h1>APP TODO RUBÉN</h1>
 
         <div class="tareas">
 
-            <form id="agregarTareas"></form>
+            <form id="agregarTareas">
 
-            <label for="tarea"></label>
-            <input type="text" id="tarea" name="tarea" placeholder="Agrega una tarea">
+                <input id="botonGuardar" type="text" id="tarea" name="tarea" placeholder="Agregar una tarea">
 
+                <select id="prioridad">
+                    <option value="">Selecciona una prioridad</option>
+                    <option value="urgente">Urgente</option>
+                    <option value="diaria">Diaria</option>
+                    <option value="mensual">Mensual</option>
+                </select>
 
-            <select id="tipoTarea">
-                <option value="">Selecciona una prioridad</option>
-                <option value="urgente">Urgente</option>
-                <option value="diaria">Diaria</option>
-                <option value="mensual">Mensual</option>
-            </select>
+                <input type="submit" value="Agregar">
 
-            <input type="submit" value="Agregar">
+            </form>
 
         </div>
 
 
-        <article>
-            <h2>Mis tareas</h2>
-        </article>
-
-
+        <h2>Mis tareas</h2>
 
         <div class="infovalue">
 
-            <select id="selectTarea">
+
+            <select id="filtroPrioridad">
                 <option value="">Prioridad</option>
                 <option value="urgente">Urgente</option>
                 <option value="diaria">Diaria</option>
                 <option value="mensual">Mensual</option>
             </select>
 
-            <label for="tarea"></label>
-            <input type="text" id="tarea" name="tarea">
+            <form id="filtroBuscar">
+                <input type="text" id="tarea" name="tarea">
+            </form>
+
+            <section id="listaTareas">
+
+            </section>
+
+
 
         </div>
 
 
 
-        <h3>Estudiar JavaScritp</h3>
+        <!--  <h3>Estudiar JavaScritp</h3>
         <h3>Salir a comer</h3>
-        <h3>Dormir</h3>
+        <h3>Dormir</h3> -->
         <!-- <div class="urgente">
                 Prioridad: urgente
             </div> -->
 
-    </header>
+    </div>
 
 
 

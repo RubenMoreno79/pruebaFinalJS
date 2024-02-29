@@ -1,17 +1,22 @@
 const listaTareas = [
     {
-        idTarea: '0',
-        Titulo: 'Estudiar JavaScript',
-        Prioridad: 'Urgente',
+        idTarea: '1',
+        titulo: 'Estudiar JavaScript',
+        prioridad: 'urgente',
     },
     {
         idTarea: '2',
-        Titulo: 'Dormir',
-        Prioridad: 'Diaria',
+        titulo: 'Dormir',
+        prioridad: 'diaria',
     },
     {
         idTarea: '3',
-        Titulo: 'Salir a comer',
-        Prioridad: 'Mensual',
+        titulo: 'Salir a comer',
+        prioridad: 'mensual',
+    },
+    {
+        idTarea: '4',
+        titulo: '',
+        prioridad: 'mensual',
     },
 ];
