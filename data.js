@@ -14,9 +14,6 @@ const listaTareas = [
         titulo: 'Salir a comer',
         prioridad: 'mensual',
     },
-    {
-        idTarea: '4',
-        titulo: '',
-        prioridad: 'mensual',
-    },
+
+
 ];
