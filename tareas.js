@@ -30,6 +30,9 @@ const sectionTareas = document.querySelector('#listaTareas');
 
 form.addEventListener.addEventListener('submit', getDataForm);
 
-function getDataForm(params) {
+function getDataForm(event) {
+
+
+
 
 }
