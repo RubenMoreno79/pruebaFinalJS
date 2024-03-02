@@ -6,7 +6,7 @@
 
 
 
-header {
+/* header {
     width: 800px;
     height: auto;
     margin: 0 auto;
@@ -41,14 +41,24 @@ article h2 {
         padding: 5px;
         margin-left: 20px;
     }
-}
+} */
 
 .urgente {
     background-color: brown;
     padding: 20px;
 }
 
-#selectTarea {
+.diaria {
+    background-color: rgb(20, 113, 150);
+    padding: 20px;
+}
+
+.mensual {
+    background-color: rgb(190, 18, 98);
+    padding: 20px;
+}
+
+/* #selectTarea {
     background-color: aquamarine;
     color: rgb(21, 70, 70);
     padding: 5px;
@@ -64,4 +74,4 @@ article h2 {
 #listaTareas {
     background-color: white;
     padding: 40px 0px;
-}
+} */

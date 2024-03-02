@@ -1,28 +1,51 @@
-//TODO pintar una tarea en el dom: para pintar una tarea voy a crear las siguiente estructura
-/*<div></div> - crear elemento div
-<p></p> - crear elemento p
-<button></button> - crear elemento button
-- dentro del parrafo tengo que meter la tarea
-- dentro del boton tengo que poner un event (addeventlistener) 'click' - llamar a borrar
-- dentro del boton tengo que poner un texto que indique que asi borro una tarea (icono) 
-- meto el parrafo y el boton dentro del div
-- meto el div dentro de la seccion donde voy a pintar (append)
-*/
+//Filtro por prioridad y buscador de palabras
 
-
-/*boton guardar y prioridad*/
 const form = document.querySelector('#agregarTareas');
 const sectionTareas = document.querySelector('#listaDeTareas');
 
 let miId = 4;
 
+function borrarTarea(event) {
+    const id = event.target.dataset.id;
+    let resultado = listaTareas.findIndex((tarea) => tarea.idTarea === id);
+    if (resultado !== -1) {
+        listaTareas.splice(resultado, 1)
+    }
+    const elementoQueQuieroBorrar = event.target.parentNode
+    const padreDelElementoQueQuieroBorrar = elementoQueQuieroBorrar.parentNode;
+    padreDelElementoQueQuieroBorrar.removeChild(elementoQueQuieroBorrar);
+    alert('Tarea eliminada');
+}
+
 function pintarUnaTarea(loQueQuieroPintar, dondeLoQuieroPintar) {
+    const prioridad = loQueQuieroPintar.prioridad;
+    const div = document.createElement('div');
+    div.classList.add(prioridad);
 
+    // Agregar clases de Bootstrap
+    div.classList.add('d-flex', 'mb-2', 'p-3', 'rounded', 'justify-content-between'); // Estilo de tarjeta con margen y relleno
 
+    const p = document.createElement('p');
+    p.textContent = loQueQuieroPintar.titulo;
 
+    // Agregar clases de Bootstrap al botón
+    const button = document.createElement('button');
+    button.textContent = 'X';
+    button.classList.add('btn', 'btn-danger', 'ml-2'); // Estilo de botón de peligro con margen izquierdo
+    button.dataset.id = loQueQuieroPintar.idTarea;
+    button.addEventListener('click', borrarTarea);
+
+    div.append(p, button);
+    dondeLoQuieroPintar.append(div);
 }
 
 
+function pintarTodasTareas(lista, domElement) {
+    domElement.innerHTML = "";
+    lista.forEach(tarea => pintarUnaTarea(tarea, domElement))
+}
+
+pintarTodasTareas(listaTareas, listaDeTareas)
 
 function guardarTareaEnListaTareas(tarea) {
     const titulo = tarea.titulo;
@@ -38,7 +61,6 @@ function guardarTareaEnListaTareas(tarea) {
 
 }
 
-
 function getDataForm(event) {
     event.preventDefault();
 
@@ -52,6 +74,7 @@ function getDataForm(event) {
     }
 
     guardarTareaEnListaTareas(nuevaTarea);
+    event.target.reset();
 }
 
 form.addEventListener('submit', getDataForm);
