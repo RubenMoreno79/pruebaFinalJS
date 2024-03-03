@@ -17,21 +17,16 @@
 
 
     <div id="header" class="container">
-        <!-- Container para limitar el ancho -->
 
         <h1 class="text-center">APP TODO RUBÉN</h1>
 
         <div class="tareas mt-4">
-            <!-- mt-4 para agregar margen superior -->
 
             <form id="agregarTareas" class="form-inline">
-                <!-- form-inline para alinear los elementos en línea -->
 
                 <input id="tarea" type="text" name="tarea" class="form-control mr-2" placeholder="Agregar una tarea">
-                <!-- form-control para dar estilo al input y mr-2 para agregar margen derecho -->
 
-                <select id="prioridad" class="form-control mr-2">
-                    <!-- form-control para dar estilo al select y mr-2 para agregar margen derecho -->
+                <select id="prioridad" class="form-select mr-2 mb-2 mt-2">
                     <option value="">Selecciona una prioridad</option>
                     <option value="urgente">Urgente</option>
                     <option value="diaria">Diaria</option>
@@ -39,44 +34,31 @@
                 </select>
 
                 <input type="submit" name="agregar" value="Agregar" class="btn btn-primary">
-                <!-- btn y btn-primary para dar estilo al botón -->
             </form>
         </div>
 
         <h2 class="mt-4">Mis tareas</h2>
 
         <div class="infovalue mt-3">
-            <!-- mt-3 para agregar margen superior -->
 
-            <select id="filtroPrioridad" class="form-control mr-2">
-                <!-- form-control para dar estilo al select y mr-2 para agregar margen derecho -->
+            <select id="filtroPrioridad" class="form-select mr-2 mb-2">
                 <option value="">Prioridad</option>
                 <option value="urgente">Urgente</option>
                 <option value="diaria">Diaria</option>
                 <option value="mensual">Mensual</option>
             </select>
+        </div>
 
+        <div>
             <form id="filtroBuscar" class="form-inline">
-                <!-- form-inline para alinear los elementos en línea -->
                 <input type="text" id="tarea" name="tarea" class="form-control mr-2" placeholder="Buscar tarea">
-                <!-- form-control para dar estilo al input y mr-2 para agregar margen derecho -->
             </form>
 
             <section id="listaDeTareas" class="mt-3">
-                <!-- mt-3 para agregar margen superior -->
-                <!-- Aquí se listarán las tareas -->
             </section>
         </div>
+
     </div>
-
-
-
-
-
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

@@ -1,5 +1,6 @@
 //Filtro por prioridad y buscador de palabras
 
+
 const form = document.querySelector('#agregarTareas');
 const sectionTareas = document.querySelector('#listaDeTareas');
 
@@ -22,23 +23,20 @@ function pintarUnaTarea(loQueQuieroPintar, dondeLoQuieroPintar) {
     const div = document.createElement('div');
     div.classList.add(prioridad);
 
-    // Agregar clases de Bootstrap
-    div.classList.add('d-flex', 'mb-2', 'p-3', 'rounded', 'justify-content-between'); // Estilo de tarjeta con margen y relleno
+    div.classList.add('d-flex', 'mb-2', 'p-3', 'rounded', 'justify-content-between');
 
     const p = document.createElement('p');
     p.textContent = loQueQuieroPintar.titulo;
 
-    // Agregar clases de Bootstrap al botón
     const button = document.createElement('button');
     button.textContent = 'X';
-    button.classList.add('btn', 'btn-danger', 'ml-2'); // Estilo de botón de peligro con margen izquierdo
+    button.classList.add('btn', 'btn-danger', 'ml-2');
     button.dataset.id = loQueQuieroPintar.idTarea;
     button.addEventListener('click', borrarTarea);
 
     div.append(p, button);
     dondeLoQuieroPintar.append(div);
 }
-
 
 function pintarTodasTareas(lista, domElement) {
     domElement.innerHTML = "";
@@ -58,7 +56,6 @@ function guardarTareaEnListaTareas(tarea) {
     }
 
     pintarUnaTarea(tarea, sectionTareas);
-
 }
 
 function getDataForm(event) {
@@ -78,3 +75,26 @@ function getDataForm(event) {
 }
 
 form.addEventListener('submit', getDataForm);
+
+
+//filter prioridad === tarea.prioridad
+
+const selectFiltroPrioridad = document.querySelector('#filtroPrioridad');
+
+selectFiltroPrioridad.addEventListener('change', filtrarTareaPorPrioridad);
+
+function filtrarTareaPorPrioridad(event) {
+    event.preventDefault();
+    const prioridadSeleccionada = event.target.value;
+    const listaFiltrada = listaTareas.filter((tarea) => {
+        return tarea.prioridad === prioridadSeleccionada;
+    })
+    if (listaFiltrada.length === 0) {
+        alert('No existen tareas con esa prioridad')
+    } else if (prioridadSeleccionada === "") {
+        pintarTodasTareas(listaTareas, sectionTareas)
+    } else {
+        pintarTodasTareas(listaFiltrada, sectionTareas)
+    }
+}
+
