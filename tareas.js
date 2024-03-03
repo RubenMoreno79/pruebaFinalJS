@@ -30,9 +30,15 @@ function pintarUnaTarea(loQueQuieroPintar, dondeLoQuieroPintar) {
     const p = document.createElement('p');
     p.textContent = loQueQuieroPintar.titulo;
 
+
+
+
+
+    ; // Utiliza el ícono de eliminar de Font Awesome
+
     const button = document.createElement('button');
-    button.textContent = 'X';
-    button.classList.add('btn', 'btn-danger', 'ml-2');
+    button.textContent = 'Eliminar';
+    button.classList.add('btn', 'btn-success', 'ml-2');
     button.dataset.id = loQueQuieroPintar.idTarea;
     button.addEventListener('click', borrarTarea);
 
