@@ -3,6 +3,7 @@
 
 const form = document.querySelector('#agregarTareas');
 const sectionTareas = document.querySelector('#listaDeTareas');
+const selectFiltroPrioridad = document.querySelector('#filtroPrioridad');
 
 let miId = 4;
 
@@ -21,6 +22,7 @@ function borrarTarea(event) {
 function pintarUnaTarea(loQueQuieroPintar, dondeLoQuieroPintar) {
     const prioridad = loQueQuieroPintar.prioridad;
     const div = document.createElement('div');
+
     div.classList.add(prioridad);
 
     div.classList.add('d-flex', 'mb-2', 'p-3', 'rounded', 'justify-content-between');
@@ -36,6 +38,7 @@ function pintarUnaTarea(loQueQuieroPintar, dondeLoQuieroPintar) {
 
     div.append(p, button);
     dondeLoQuieroPintar.append(div);
+
 }
 
 function pintarTodasTareas(lista, domElement) {
@@ -49,13 +52,13 @@ function guardarTareaEnListaTareas(tarea) {
     const titulo = tarea.titulo;
     const prioridad = tarea.prioridad;
     if (titulo === "" || prioridad === "") {
-        alert('No puedes dejar ningún campo vacío')
+        return alert('No puedes dejar ningún campo vacío')
     } else {
         listaTareas.push(tarea)
         miId++
     }
-
     pintarUnaTarea(tarea, sectionTareas);
+
 }
 
 function getDataForm(event) {
@@ -76,11 +79,6 @@ function getDataForm(event) {
 
 form.addEventListener('submit', getDataForm);
 
-
-//filter prioridad === tarea.prioridad
-
-const selectFiltroPrioridad = document.querySelector('#filtroPrioridad');
-
 selectFiltroPrioridad.addEventListener('change', filtrarTareaPorPrioridad);
 
 function filtrarTareaPorPrioridad(event) {
@@ -90,11 +88,27 @@ function filtrarTareaPorPrioridad(event) {
         return tarea.prioridad === prioridadSeleccionada;
     })
     if (listaFiltrada.length === 0) {
-        alert('No existen tareas con esa prioridad')
-    } else if (prioridadSeleccionada === "") {
-        pintarTodasTareas(listaTareas, sectionTareas)
+        if (prioridadSeleccionada === "") {
+            pintarTodasTareas(listaTareas, sectionTareas)
+
+        } else {
+            alert('No existen tareas con esa prioridad')
+        }
     } else {
         pintarTodasTareas(listaFiltrada, sectionTareas)
     }
 }
 
+const formFiltroBuscar = document.querySelector('#filtroBuscar');
+
+
+function filtrarPorLetra(event) {
+    event.preventDefault();
+    const loQueBuscaElUsuario = event.target.value;
+    const filtrada = listaTareas.filter((tarea) => {
+        return tarea.titulo.toLowerCase().startsWith(loQueBuscaElUsuario.toLowerCase())
+    })
+    pintarTodasTareas(filtrada, sectionTareas)
+}
+
+formFiltroBuscar.addEventListener('input', filtrarPorLetra);
